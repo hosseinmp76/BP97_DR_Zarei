@@ -2,7 +2,7 @@ package oo;
 
 import oo.basic.RationalNumber;
 
-public class RealNumberTest {
+public class RealNumberTest extends Object {
 
 	public static void main(String[] args) {
 //		Double d = new Double(999999999999999999l);
@@ -20,8 +20,15 @@ public class RealNumberTest {
 //			System.out.println("BAD ");
 //		}
 
+		Object o = null;
+		
+		
 		RationalNumber r1 = new RationalNumber(1,76587364853879797L);
 		String st = r1.toString();
+		
+		o = r1;
+		
+		
 		System.out.println(r1);
 		System.out.println(st);
 		RationalNumber r2 = new RationalNumber(1,76587364853879797L);
