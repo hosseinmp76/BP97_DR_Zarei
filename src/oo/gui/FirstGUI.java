@@ -38,9 +38,15 @@ public class FirstGUI {
 		f.setBounds(100, 150, 200, 300);
 		f.setTitle("اولین برنامه گرافیکی من");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.setLocationRelativeTo(null);
 //		f.setResizable(false);
 		f.addWindowListener(new MyWindowListener());
 		f.addMouseListener(new MyMouseListener());
+		long t = System.currentTimeMillis();
+		for (int i=0; i<1000000; i++) {
+			f.addCircleNoPaint(i%100, i*2%200);
+		}
+		System.out.println(System.currentTimeMillis()-t);
 		f.show();
 
 	}

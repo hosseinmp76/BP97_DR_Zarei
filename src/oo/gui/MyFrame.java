@@ -16,7 +16,7 @@ import oo.set.ListOfPoints;
 
 public class MyFrame extends JFrame {
 //	ListOfPoints circles = new ListOfPoints();
-	LinkedList<Point> circles = new LinkedList();
+	ArrayList<Point> circles = new ArrayList();
 	
 	String fileName;
 	public MyFrame(String fileName) {
@@ -41,7 +41,7 @@ public class MyFrame extends JFrame {
 		g.setColor(Color.blue);
 		g.drawOval(20, 50, 100, 200);
 		
-		for(int i=0; i<circles.size(); i++) {
+		for(int i=0; i<circles.size() && i<500; i++) {
 			Point p = (Point) circles.get(i);
 			g.drawOval(p.x-10, p.y-10, 20, 20);
 		}
@@ -62,4 +62,9 @@ public class MyFrame extends JFrame {
 		}catch(Exception e) {e.printStackTrace();}
 		repaint();
 	}
+	
+	public void addCircleNoPaint(int x, int y) {
+		circles.add(new Point(x, y));
+	}
+	
 }

@@ -3,19 +3,26 @@ package oo.set;
 import oo.gui.Point;
 
 public class ListOfPoints {
-	private Point[] s = new Point[0];
+	private Point[] s = new Point[2];
+	int usedCells = 0;
 
 	public void add(Point st) {
-		Point[] newArray = new Point[s.length+1];
-		for(int i=0; i<s.length; i++) {
-			newArray[i] = s[i];
+		if (s.length>usedCells) {
+			s[usedCells] = st;
+			usedCells++;
+		} else {
+			Point[] newArray = new Point[3*s.length/2];
+			for(int i=0; i<s.length; i++) {
+				newArray[i] = s[i];
+			}
+			newArray[usedCells] = st;
+			s = newArray;
+			usedCells++;
 		}
-		newArray[newArray.length-1] = st;
-		s = newArray;
 	}
 
 	public int size() {
-		return s.length;
+		return usedCells;// s.length;
 	}
 
 	public Point get(int index) {
