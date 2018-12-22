@@ -8,15 +8,18 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
 
 import javax.swing.JFrame;
 
+import oo.Drawable;
 import oo.set.ListOfPoints;
 
 public class MyFrame extends JFrame {
 //	ListOfPoints circles = new ListOfPoints();
 	ArrayList<Point> circles = new ArrayList();
+	List d = new ArrayList();
 	
 	String fileName;
 	public MyFrame(String fileName) {
@@ -46,6 +49,10 @@ public class MyFrame extends JFrame {
 			g.drawOval(p.x-10, p.y-10, 20, 20);
 		}
 //		System.out.println("inside paint");
+		
+		for(int i=0;i<d.size();i++) {
+			((Drawable)(d.get(i))).draw(g);
+		}
 	}
 
 	public void addCircle(int x, int y) {
@@ -65,6 +72,10 @@ public class MyFrame extends JFrame {
 	
 	public void addCircleNoPaint(int x, int y) {
 		circles.add(new Point(x, y));
+	}
+	
+	public void addDrawable(Drawable o) {
+		d.add(o);
 	}
 	
 }
