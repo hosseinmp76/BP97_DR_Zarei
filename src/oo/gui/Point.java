@@ -1,6 +1,8 @@
 package oo.gui;
 
-public class Point {
+import java.io.Serializable;
+
+public class Point implements Comparable, Serializable {
 	public int x, y;
 
 	public Point(int x, int y) {
@@ -31,6 +33,22 @@ public class Point {
 		Integer xx = x;
 		Integer yy = y;
 		return xx.hashCode() + yy.hashCode();
+	}
+
+	@Override
+	public int compareTo(Object arg0) {
+		if (arg0 !=null && arg0 instanceof Point) {
+			Point arg = (Point) arg0;
+			if (this.x==arg.x && this.y==arg.y) {
+				return 0;
+			} else if (this.x>arg.x || (this.x==arg.x && this.y>arg.y)) {
+				return 1;
+			} else {
+				return -1;
+			}
+		} else {
+			return 0;
+		}
 	}
 
 }
